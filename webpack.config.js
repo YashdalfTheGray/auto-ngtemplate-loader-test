@@ -39,11 +39,6 @@ module.exports = {
             }
         ]
     },
-    resolveLoader: {
-        alias: {
-            'auto-ngtemplate-loader': join(__dirname, './index.js')
-        }
-    },
     stats: {
         colors: true
     }
