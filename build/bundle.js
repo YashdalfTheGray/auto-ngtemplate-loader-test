@@ -36,17 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -89,18 +104,14 @@ module.exports = path;
 /*!*******************************!*\
   !*** ./admin/admin.module.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = AdminController;
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AdminController; });
 function AdminController($scope) {
-    $scope.title = 'Test title';
+  $scope.title = 'Test title';
 }
 
 /***/ }),
@@ -109,21 +120,17 @@ function AdminController($scope) {
 /*!******************************!*\
   !*** ./admin/admin.route.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+__webpack_require__.r(__webpack_exports__);
 var autoNgTemplateLoaderTemplate1 = __webpack_require__(/*! ./admin.html */ "./admin/admin.html");
 
-exports.default = {
-    templateUrl: autoNgTemplateLoaderTemplate1,
-    controller: 'AdminController'
-};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  templateUrl: autoNgTemplateLoaderTemplate1,
+  controller: 'AdminController'
+});
 
 /***/ }),
 
@@ -131,25 +138,18 @@ exports.default = {
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _admin_admin_route__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./admin/admin.route */ "./admin/admin.route.js");
+/* harmony import */ var _admin_admin_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin/admin.module */ "./admin/admin.module.js");
 
-
-var _admin = __webpack_require__(/*! ./admin/admin.route */ "./admin/admin.route.js");
-
-var _admin2 = _interopRequireDefault(_admin);
-
-var _admin3 = __webpack_require__(/*! ./admin/admin.module */ "./admin/admin.module.js");
-
-var _admin4 = _interopRequireDefault(_admin3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 angular.module('app', ['ngRoute']).config(function ($routeProvider) {
-    $routeProvider.when('/', _admin2.default);
-}).controller('AdminController', _admin4.default);
+  $routeProvider.when('/', _admin_admin_route__WEBPACK_IMPORTED_MODULE_0__["default"]);
+}).controller('AdminController', _admin_admin_module__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /***/ }),
 
