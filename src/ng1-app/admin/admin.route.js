@@ -1,4 +1,4 @@
 export default {
-    templateUrl: './admin.html',
-    controller: 'AdminController'
+  templateUrl: './admin.html',
+  controller: 'AdminController',
 };
