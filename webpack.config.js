@@ -5,7 +5,7 @@ module.exports = {
   context: resolve('src/ng1-app'),
   output: {
     filename: 'bundle.js',
-    path: resolve('build'),
+    path: resolve('output'),
   },
   devtool: 'source-map',
   mode: 'development',
