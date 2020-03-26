@@ -122,7 +122,7 @@
       /*! no static exports found */
       /***/ function (module, exports) {
         throw new Error(
-          'Module parse failed: Unexpected token (3:0)\nFile was processed with these loaders:\n * ../../node_modules/ngtemplate-loader/index.js\n * ../../node_modules/html-loader/dist/cjs.js\nYou may need an additional loader to handle the result of these loaders.\n| var path = \'ng1-app/admin/admin.html\';\n| var html = // Module\n> var code = "<div>\\n  <h1>{{title}}</h1>\\n</div>\\n";\n| // Exports\n| module.exports = code;;'
+          'Module parse failed: Unexpected token (3:0)\nFile was processed with these loaders:\n * ../../node_modules/ngtemplate-loader/index.js\n * ../../node_modules/html-loader/dist/cjs.js\nYou may need an additional loader to handle the result of these loaders.\n| var path = \'ng1-app/admin/admin.html\';\n| var html = // Module\n> var code = "<div>\\n    <h1>{{title}}</h1>\\n</div>\\n";\n| // Exports\n| module.exports = code;;'
         );
 
         /***/
