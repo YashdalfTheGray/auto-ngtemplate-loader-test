@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "npm run build",
-    "test": "npm run build"
+    "test": "npm run build",
+    "clean": "npx rimraf output"
   },
   "author": "Yash Kulshrestha",
   "license": "GPL-3.0",
