@@ -1,3 +1,5 @@
+![Test build](https://github.com/YashdalfTheGray/auto-ngtemplate-loader-test/workflows/Test%20build/badge.svg)
+
 # auto-ngtemplate-loader-test
 
 Testbench for auto-ngtemplate-loader.
