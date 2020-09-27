@@ -26,3 +26,10 @@ jobs:
 
       - name: Test Webpack build
         run: npm test
+
+      - name: Upload the bundle
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ format('bundle-{0}-{1}.js', matrix.node-version, runner.os) }}
+          path: output/bundle.js
