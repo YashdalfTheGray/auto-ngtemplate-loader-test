@@ -5,7 +5,7 @@ module.exports = {
   context: resolve('src/ng1-app'),
   output: {
     filename: 'bundle.js',
-    path: resolve('output'),
+    path: resolve('public'),
   },
   devtool: 'source-map',
   mode: 'development',
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        exclude: [/node_modules/, join(process.cwd(), 'src/index.html')],
+        exclude: [/node_modules/],
         use: [
           {
             loader: 'ngtemplate-loader',

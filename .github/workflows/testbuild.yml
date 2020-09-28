@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ format('bundle-{0}-{1}.js', matrix.node-version, runner.os) }}
-          path: output/bundle.js
+          path: public/bundle.js
