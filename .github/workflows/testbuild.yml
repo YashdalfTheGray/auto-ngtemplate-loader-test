@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [10.x, 12.x, 14.x]
-        webpack-version: [4, 5]
+        webpack-version: ['4', '5']
       fail-fast: true
 
     steps:
@@ -27,11 +27,11 @@ jobs:
 
       - name: Install Webpack v4
         run: npm install webpack@4 webpack-cli@3
-        if: ${{ matrix.webpack-version }} == 4
+        if: matrix.webpack-version == '4'
 
       - name: Install Webpack v5
         run: npm install webpack@5 webpack-cli@4
-        if: ${{ matrix.webpack-version }} == 5
+        if: matrix.webpack-version == '5'
 
       - name: Test Webpack build
         run: npm test
