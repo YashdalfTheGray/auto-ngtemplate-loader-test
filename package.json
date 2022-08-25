@@ -7,7 +7,9 @@
     "build": "webpack",
     "start": "npm run build",
     "test": "npm run build",
-    "clean": "npx rimraf output"
+    "clean": "npx rimraf output",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "author": "Yash Kulshrestha",
   "license": "GPL-3.0",
@@ -23,11 +25,6 @@
     "prettier": "~2.7.1",
     "webpack": "~5.74.0",
     "webpack-cli": "~4.10.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,json,css,md,yml}": [
