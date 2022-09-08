@@ -15,7 +15,7 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "@babel/core": "~7.18.13",
-    "@babel/preset-env": "~7.18.10",
+    "@babel/preset-env": "~7.19.0",
     "auto-ngtemplate-loader": "~3.1.0",
     "babel-loader": "~8.2.5",
     "html-loader": "~4.1.0",
