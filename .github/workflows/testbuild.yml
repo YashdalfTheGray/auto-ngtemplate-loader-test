@@ -9,9 +9,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: ['14', '16', '17', '18']
+        node-version: ['14', '16', '18', '19']
         webpack-version: ['4', '5']
-      fail-fast: true
 
     steps:
       - name: Checkout code
