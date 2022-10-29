@@ -36,12 +36,24 @@ jobs:
       - name: Install webpack specific dependencies
         run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION
 
-      - name: Install Webpack v5
-        run: npm install webpack@5 webpack-cli@4
-        if: matrix.webpack-version == '5'
-
       - name: Test Webpack build
-        run: npm test
+        run: |
+          npm test
+        if: matrix.node != '19' && matrix.webpack-version != '4' && matrix.os != 'windows-latest'
+
+      - name: Test Webpack build (Node.js v19 and Webpack v4)
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+          npm test
+        if: matrix.node != '19' && matrix.webpack-version != '4' && matrix.os != 'windows-latest'
+        # https://github.com/webpack/webpack/issues/14532 🙄
+
+      - name: Test Webpack build (Node.js v19, Webpack v4, and Windows)
+        run: |
+          $Env:NODE_OPTIONS = "--openssl-legacy-provider"
+          npm test
+        if: matrix.node == '19' && matrix.webpack-version == '4' && matrix.os == 'windows-latest'
+        # https://github.com/webpack/webpack/issues/14532 🙄
 
       - name: Upload the bundle
         if: ${{ success() }}
