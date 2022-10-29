@@ -11,6 +11,15 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: ['14', '16', '18', '19']
         webpack-version: ['4', '5']
+      include:
+        - webpack-version: 5
+          webpack-cli-version: 4
+        - webpack-version: 4
+          webpack-cli-version: 3
+
+    env:
+      WEBPACK_VERSION: ${{ matrix.webpack-version }}
+      WEBPACK_CLI_VERSION: ${{ matrix.webpack-cli-version }}
 
     steps:
       - name: Checkout code
@@ -24,9 +33,8 @@ jobs:
       - name: Install Node modules
         run: npm ci
 
-      - name: Install Webpack v4
-        run: npm install webpack@4 webpack-cli@3
-        if: matrix.webpack-version == '4'
+      - name: Install webpack specific dependencies
+        run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION
 
       - name: Install Webpack v5
         run: npm install webpack@5 webpack-cli@4
