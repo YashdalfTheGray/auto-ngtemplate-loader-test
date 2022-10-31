@@ -39,7 +39,7 @@ jobs:
       - name: Test Webpack build
         run: |
           npm test
-        if: matrix.node != '19' && matrix.webpack-version != '4' && matrix.os != 'windows-latest'
+        if: matrix.node != '19' || matrix.webpack-version != '4' || matrix.os != 'windows-latest'
 
       - name: Test Webpack build (Node.js v19 and Webpack v4)
         run: |
