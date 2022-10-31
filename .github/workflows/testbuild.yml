@@ -14,12 +14,15 @@ jobs:
         include:
           - webpack-version: 5
             webpack-cli-version: 4
+            loader-utils-version: 3
           - webpack-version: 4
             webpack-cli-version: 3
+            loader-utils-version: 2
 
     env:
       WEBPACK_VERSION: ${{ matrix.webpack-version }}
       WEBPACK_CLI_VERSION: ${{ matrix.webpack-cli-version }}
+      LOADER_UTILS_VERSION: ${{ matrix.loader-utils-version }}
 
     steps:
       - name: Checkout code
@@ -34,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Install webpack specific dependencies
-        run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION
+        run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION loader-utils@$LOADER_UTILS_VERSION
 
       - name: Test Webpack build
         run: |
