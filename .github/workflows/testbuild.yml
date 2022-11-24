@@ -14,15 +14,24 @@ jobs:
         include:
           - webpack-version: 5
             webpack-cli-version: 4
-            loader-utils-version: 3
+            # https://github.com/YashdalfTheGray/auto-ngtemplate-loader/issues/279
+            auto-ngtemplate-loader-version: 3.1.2
+            babel-loader-version: 9
+            html-loader-version: 4
           - webpack-version: 4
             webpack-cli-version: 3
-            loader-utils-version: 2
+            # https://github.com/YashdalfTheGray/auto-ngtemplate-loader/issues/279
+            auto-ngtemplate-loader-version: 3.1.1
+            babel-loader-version: 8
+            html-loader-version: 1
 
     env:
       WEBPACK_VERSION: ${{ matrix.webpack-version }}
       WEBPACK_CLI_VERSION: ${{ matrix.webpack-cli-version }}
       LOADER_UTILS_VERSION: ${{ matrix.loader-utils-version }}
+      AUTO_NGTEMPLATE_LOADER_VERSION: ${{ matrix.auto-ngtemplate-loader-version }}
+      BABEL_LOADER_VERSION: ${{ matrix.babel-loader-version }}
+      HTML_LOADER_VERSION: ${{ matrix.html-loader-version }}
 
     steps:
       - name: Checkout code
@@ -37,7 +46,7 @@ jobs:
         run: npm ci
 
       - name: Install webpack specific dependencies
-        run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION loader-utils@$LOADER_UTILS_VERSION
+        run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION auto-ngtemplate-loader@$LOADER_UTILS_VERSION babel-loader@$BABEL_LOADER_VERSION html-loader@$HTML_LOADER_VERSION
 
       - name: Test Webpack build
         run: |
