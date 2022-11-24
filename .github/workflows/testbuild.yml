@@ -13,7 +13,7 @@ jobs:
         webpack-version: ['4', '5']
         include:
           - webpack-version: 5
-            webpack-cli-version: 4
+            webpack-cli-version: 5
             # https://github.com/YashdalfTheGray/auto-ngtemplate-loader/issues/279
             auto-ngtemplate-loader-version: 3.1.2
             babel-loader-version: 9
