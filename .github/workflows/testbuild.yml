@@ -48,23 +48,23 @@ jobs:
       - name: Install webpack specific dependencies
         run: npm install webpack@$WEBPACK_VERSION webpack-cli@$WEBPACK_CLI_VERSION auto-ngtemplate-loader@$LOADER_UTILS_VERSION babel-loader@$BABEL_LOADER_VERSION html-loader@$HTML_LOADER_VERSION
 
-      - name: Test Webpack build
+      - name: Test Webpack build (Node.js < 18)
         run: |
           npm test
-        if: matrix.node != 19 || matrix.webpack-version != '4' || matrix.os != 'windows-latest'
+        if: matrix.node < ${{ 18 }} || matrix.webpack-version != '4' || matrix.os != 'windows-latest'
 
-      - name: Test Webpack build (Node.js v19 and Webpack v4)
+      - name: Test Webpack build (Node.js >= 18 and Webpack v4)
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm test
-        if: matrix.node == 19 && matrix.webpack-version == '4' && matrix.os != 'windows-latest'
+        if: matrix.node >= ${{ 18 }} && matrix.webpack-version == '4' && matrix.os != 'windows-latest'
         # https://github.com/webpack/webpack/issues/14532 🙄
 
-      - name: Test Webpack build (Node.js v19, Webpack v4, and Windows)
+      - name: Test Webpack build (Node.js >= 18, Webpack v4, and Windows)
         run: |
           $Env:NODE_OPTIONS = "--openssl-legacy-provider"
           npm test
-        if: matrix.node == 19 && matrix.webpack-version == '4' && matrix.os == 'windows-latest'
+        if: matrix.node >= ${{ 18 }} && matrix.webpack-version == '4' && matrix.os == 'windows-latest'
         # https://github.com/webpack/webpack/issues/14532 🙄
 
       - name: Upload the bundle
