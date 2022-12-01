@@ -20,7 +20,7 @@
     "babel-loader": "~9.1.0",
     "html-loader": "~4.2.0",
     "husky": "~8.0.2",
-    "lint-staged": "~13.0.3",
+    "lint-staged": "~13.0.4",
     "ngtemplate-loader": "~2.1.0",
     "prettier": "~2.8.0",
     "webpack": "~5.75.0",
